@@ -1,5 +1,6 @@
+import { Deck } from 'src/decks/entities/deck.entity';
 import { BaseEntity } from 'src/shared/entities/base.entity';
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, OneToMany } from 'typeorm';
 
 @Entity()
 export class User extends BaseEntity {
@@ -14,4 +15,7 @@ export class User extends BaseEntity {
 
   @Column()
   name: string;
+
+  @OneToMany(() => Deck, (deck) => deck.user)
+  decks: Deck[];
 }
