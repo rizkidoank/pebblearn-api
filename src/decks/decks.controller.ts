@@ -27,7 +27,10 @@ export class DecksController {
     @Req() req: any,
     @Body() createDeckDto: CreateDeckDto,
   ): Promise<DeckResponseDto> {
-    const deck: Promise<Deck> = this.decksService.create(createDeckDto, req.user.id);
+    const deck: Promise<Deck> = this.decksService.create(
+      createDeckDto,
+      req.user.id,
+    );
     return plainToInstance(DeckResponseDto, deck);
   }
 
@@ -49,12 +52,16 @@ export class DecksController {
     @Req() req: any,
     @Body() updateDeckDto: UpdateDeckDto,
   ) {
-    const deck: Promise<Deck> = this.decksService.update(id, updateDeckDto, req.user.id);
+    const deck: Promise<Deck> = this.decksService.update(
+      id,
+      updateDeckDto,
+      req.user.id,
+    );
     return plainToInstance(DeckResponseDto, deck);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string, @Req() req: any,) {
+  remove(@Param('id') id: string, @Req() req: any) {
     const deck: Promise<Deck> = this.decksService.remove(id, req.user.id);
     return plainToInstance(DeckResponseDto, deck);
   }
