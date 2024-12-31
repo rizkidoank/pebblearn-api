@@ -1,10 +1,8 @@
 import { Exclude, Expose } from 'class-transformer';
+import { BaseResponseDto } from 'src/shared/dto/base.response.dto';
 
 @Exclude()
-export class UserResponseDto {
-  @Expose()
-  id: string;
-
+export class UserResponseDto extends BaseResponseDto {
   @Expose()
   username: string;
 
@@ -13,10 +11,4 @@ export class UserResponseDto {
 
   @Expose()
   name: string;
-
-  @Expose()
-  createdAt: Date;
-
-  @Expose()
-  updatedAt: Date;
 }
