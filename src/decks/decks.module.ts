@@ -7,12 +7,13 @@ import { User } from 'src/users/entities/user.entity';
 import { Category } from 'src/categories/entities/category.entity';
 import { CategoriesModule } from 'src/categories/categories.module';
 import { UsersModule } from 'src/users/users.module';
+import { Flashcard } from 'src/flashcards/entities/flashcard.entity';
 
 @Module({
   controllers: [DecksController],
   exports: [DecksService],
   imports: [
-    TypeOrmModule.forFeature([Deck, User, Category]),
+    TypeOrmModule.forFeature([Deck, User, Category, Flashcard]),
     CategoriesModule,
     UsersModule,
   ],

@@ -7,6 +7,7 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { CategoriesModule } from './categories/categories.module';
 import { DecksModule } from './decks/decks.module';
+import { FlashcardsModule } from './flashcards/flashcards.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { DecksModule } from './decks/decks.module';
     AuthModule,
     CategoriesModule,
     DecksModule,
+    FlashcardsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

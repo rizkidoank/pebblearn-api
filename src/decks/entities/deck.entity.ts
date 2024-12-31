@@ -1,7 +1,8 @@
 import { Category } from 'src/categories/entities/category.entity';
+import { Flashcard } from 'src/flashcards/entities/flashcard.entity';
 import { BaseEntity } from 'src/shared/entities/base.entity';
 import { User } from 'src/users/entities/user.entity';
-import { Column, Entity, ManyToOne } from 'typeorm';
+import { Column, Entity, ManyToOne, OneToMany } from 'typeorm';
 
 @Entity()
 export class Deck extends BaseEntity {
@@ -15,4 +16,7 @@ export class Deck extends BaseEntity {
     onDelete: 'SET NULL',
   })
   category: Category;
+
+  @OneToMany(() => Flashcard, (flashcard) => flashcard.deck)
+  flashcards: Flashcard[];
 }
